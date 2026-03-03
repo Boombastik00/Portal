@@ -6,14 +6,6 @@
     <title>PORTAL | Танцевальный Центр</title>
     <link rel="stylesheet" href="style.css">
     <style>
-    .header-logo-img {
-    height: 28px !important;
-    width: auto !important;
-    max-width: 100px !important;
-    max-height: 28px !important;
-    display: block !important;
-    filter: brightness(0) invert(1) !important;
-}
         .dir-pagination {
             display: flex;
             align-items: center;
@@ -258,44 +250,13 @@
             padding: 2px 8px;
             margin-bottom: 12px;
         }
-
-        /* Past-events slider navigation */
-        .past-slider-nav {
-            display: flex; align-items: center; gap: 20px; margin-bottom: 28px;
-        }
-        .past-slider-arrow {
-            width: 48px; height: 48px; background: transparent;
-            border: 1px solid var(--gray-mid); color: var(--white);
-            font-size: 1.1rem; cursor: pointer;
-            display: flex; align-items: center; justify-content: center;
-            transition: background var(--transition), border-color var(--transition);
-            font-family: var(--font); flex-shrink: 0;
-        }
-        .past-slider-arrow:hover { background: var(--pink); border-color: var(--pink); }
-        .past-slider-arrow:disabled { opacity: 0.2; cursor: not-allowed; }
-        .past-slider-arrow:disabled:hover { background: transparent; border-color: var(--gray-mid); }
-        .past-slider-counter {
-            font-size: 0.72rem; letter-spacing: 4px; text-transform: uppercase;
-            color: rgba(255,255,255,0.45);
-        }
-        .past-slider-counter span { color: var(--pink); }
-.header-logo-img {
-    height: 28px !important;
-    width: auto !important;
-    max-width: 100px !important;
-    max-height: 28px !important;
-    display: block !important;
-    filter: brightness(0) invert(1) !important;
-}
     </style>
 </head>
 <body>
 
     <header class="header" id="header">
         <div class="header-inner">
-            <a href="#hero" class="header-logo">
-    <img src="logo.png" alt="PORTAL" class="header-logo-img">
-</a>
+            <a href="#hero" class="header-logo">PORTAL</a>
             <button class="burger" id="burger" aria-label="Открыть меню">
                 <span></span><span></span><span></span>
             </button>
@@ -1045,37 +1006,97 @@
                 <span class="section-tag">02 / СОБЫТИЯ</span>
                 <h2 class="section-title">МЕРОПРИЯТИЯ</h2>
             </div>
+
             <div class="tabs-nav">
                 <button class="tab-btn active" data-tab="upcoming">Предстоящие</button>
                 <button class="tab-btn" data-tab="past">Прошедшие</button>
             </div>
+
             <div class="tab-panel active" id="tab-upcoming">
                 <div class="slider-container">
-                    <div class="slider" id="slider-upcoming"></div>
+                    <div class="slider" id="slider-upcoming">
+
+                        <div class="event-card">
+                            <div class="event-img" style="background-image: url('img/event_upcoming1.jpg')"></div>
+                            <div class="event-body">
+                                <p class="event-date">Скоро · Следите за анонсами</p>
+                                <h3 class="event-title">МАСТЕР-КЛАСС</h3>
+                                <p class="event-desc">Новый мастер-класс от наших хореографов. Дата и программа будут объявлены в наших соцсетях.</p>
+                                <a href="https://t.me/your_channel" target="_blank" class="btn-outline" style="margin-top:8px">Следить в TG</a>
+                            </div>
+                        </div>
+
+                        <div class="event-card">
+                            <div class="event-img" style="background-image: url('img/event_upcoming2.jpg')"></div>
+                            <div class="event-body">
+                                <p class="event-date">Анонс</p>
+                                <h3 class="event-title">БАТТЛ · ОСЕНЬ 2025</h3>
+                                <p class="event-desc">Следующий открытый баттл — уже скоро. Все направления, все уровни. Не пропусти регистрацию.</p>
+                                <a href="https://t.me/your_channel" target="_blank" class="btn-outline" style="margin-top:8px">Узнать детали</a>
+                            </div>
+                        </div>
+
+                    </div>
                     <div class="slider-arrows">
                         <button class="slider-arrow slider-prev" data-target="slider-upcoming" aria-label="Назад">&#8592;</button>
                         <button class="slider-arrow slider-next" data-target="slider-upcoming" aria-label="Вперёд">&#8594;</button>
                     </div>
                 </div>
-                <div id="upcoming-empty" style="display:none;padding:48px 0;text-align:center;color:rgba(255,255,255,0.35);font-size:0.82rem;letter-spacing:3px;text-transform:uppercase;">
-                    Предстоящих событий пока нет &mdash; следите в&nbsp;<a href="https://t.me/your_channel" target="_blank" style="color:var(--pink)">Telegram</a>
-                </div>
             </div>
+
             <div class="tab-panel" id="tab-past">
-                <div class="past-slider-container">
-                    <div class="past-slider-nav" style="display:none">
-                        <button class="past-slider-arrow" id="pastPrev" disabled>&#8592;</button>
-                        <span class="past-slider-counter" id="pastCounter"></span>
-                        <button class="past-slider-arrow" id="pastNext">&#8594;</button>
+                <div class="past-events-grid">
+
+                    <div class="past-event-card">
+                        <div class="past-event-img" style="background-image: url('event_masterclass.jpg'); background-color: #1a0a2e;">
+                            <div class="past-event-img-overlay"></div>
+                            <div class="past-event-label">30 августа · 7 сентября</div>
+                        </div>
+                        <div class="past-event-body">
+                            <h3 class="past-event-title">Мастер Класс</h3>
+                            <p class="past-event-desc">Двухдневный масштабный мастер-класс на базе PORTAL. Программа включала Брейкинг, All Styles, K-pop, High Heels, Vogue и Girly Hop — каждое направление вёл профессиональный хореограф центра. Участники прокачали технику и познакомились с новыми стилями.</p>
+                        </div>
                     </div>
-                    <div class="past-events-grid" id="past-events-grid"></div>
-                </div>
-                <div id="past-empty" style="display:none;padding:48px 0;text-align:center;color:rgba(255,255,255,0.35);font-size:0.82rem;letter-spacing:3px;text-transform:uppercase;">
-                    Прошедших событий пока нет
+
+                    <div class="past-event-card">
+                        <div class="past-event-img" style="background-image: url('event_cdmovefest.jpg'); background-color: #e8f4ff;">
+                            <div class="past-event-img-overlay"></div>
+                            <div class="past-event-label">24 августа · Астрахань</div>
+                        </div>
+                        <div class="past-event-body">
+                            <h3 class="past-event-title">CD Move Fest Astrakhan</h3>
+                            <p class="past-event-desc">Открытые городские соревнования по Jazz Funk и All Styles. Яркий фестиваль уличной культуры объединил танцоров Астрахани и гостей из других городов. Наши участники достойно представили PORTAL на сцене.</p>
+                        </div>
+                    </div>
+
+                    <div class="past-event-card">
+                        <div class="past-event-img" style="background-image: url('event_battlesummer.jpg'); background-color: #1a0a20;">
+                            <div class="past-event-img-overlay"></div>
+                            <div class="past-event-label">26 июля · Астрахань</div>
+                        </div>
+                        <div class="past-event-body">
+                            <h3 class="past-event-title">Battle Summer Jam</h3>
+                            <p class="past-event-desc">Летний открытый баттл в формате All Styles — жаркий, атмосферный и незабываемый. Баттл собрал сильнейших танцоров города. Атмосфера накала, честные джаджи и настоящий дух уличной культуры.</p>
+                        </div>
+                    </div>
+
+                    <div class="past-event-card">
+                        <div class="past-event-img" style="background-image: url('event_awards.jpg'); background-color: #0d0d0d;">
+                            <div class="past-event-img-overlay"></div>
+                            <div class="past-event-label">Молодёжный центр «Коса»</div>
+                        </div>
+                        <div class="past-event-body">
+                            <h3 class="past-event-title">Portal Awards</h3>
+                            <p class="past-event-desc">Торжественная премия танцевального центра PORTAL — вечер, где чествовали лучших танцоров, преподавателей и достижения года. Красная дорожка, выступления и тёплая атмосфера семьи PORTAL в одном незабываемом событии.</p>
+                        </div>
+                    </div>
+
                 </div>
             </div>
+
         </div>
     </section>
+
     <section class="rental" id="rental">
         <div class="container">
             <div class="section-header">
@@ -1216,7 +1237,15 @@
                 </div>
 
                 <div class="contacts-map">
-                    <div id="portal-map" style="width:100%;height:100%;"></div>
+                    <iframe
+                        src="https://yandex.ru/map-widget/v1/?org=80964156596&ll=48.049384%2C46.374581&z=17"
+                        width="100%"
+                        height="100%"
+                        style="border:0;"
+                        allowfullscreen=""
+                        loading="lazy"
+                        title="PORTAL Dance Center на карте">
+                    </iframe>
                 </div>
             </div>
         </div>
@@ -1301,27 +1330,6 @@
 
             showPage(1);
         })();
-    </script>
-    <script src="events-loader.js"></script>
-    <script src="rhythm-game.js"></script>
-    <script src="cursor-trail.js"></script>
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
-    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-    <script>
-    window.addEventListener('load', function(){
-        var map = L.map('portal-map', { zoomControl:true, scrollWheelZoom:false })
-            .setView([46.374581, 48.049384], 16);
-        L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
-            attribution: '&copy; OpenStreetMap &copy; CARTO', maxZoom:19
-        }).addTo(map);
-        var icon = L.divIcon({
-            html: '<div style="width:14px;height:14px;background:#e040fb;border-radius:50%;border:2px solid #fff;box-shadow:0 0 12px #e040fb;"></div>',
-            iconSize:[14,14], iconAnchor:[7,7], className:''
-        });
-        L.marker([46.374581, 48.049384], {icon:icon}).addTo(map)
-            .bindPopup('<strong>PORTAL</strong><br>ул. Савушкина 6к1, 2 этаж');
-        setTimeout(function(){ map.invalidateSize(); }, 400);
-    });
     </script>
 </body>
 </html>

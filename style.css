@@ -140,6 +140,9 @@ img, video { display: block; max-width: 100%; }
     transition: color var(--transition);
     z-index: 1200;
     position: relative;
+    display: flex;
+    align-items: center;
+    height: 40px;
 }
 .header-logo:hover { color: var(--pink); }
 
@@ -737,6 +740,7 @@ img, video { display: block; max-width: 100%; }
     height: 420px;
     background: var(--gray-mid);
     overflow: hidden;
+    filter: invert(1) hue-rotate(180deg) brightness(0.85) saturate(1.2);
 }
 .contacts-map iframe {
     position: absolute;
@@ -1052,4 +1056,16 @@ img, video { display: block; max-width: 100%; }
     .section-title { font-size: clamp(1.6rem, 12vw, 2.2rem); }
     .direction-name { font-size: clamp(1.2rem, 9vw, 1.8rem); }
     .nav-link { font-size: 1.1rem; letter-spacing: 3px; }
+}
+
+.header-logo-img {
+    height: 32px;
+    width: auto;
+    max-width: 120px;
+    display: block;
+    filter: brightness(0) invert(1);
+    transition: opacity 0.3s ease;
+}
+.header-logo:hover .header-logo-img {
+    opacity: 0.75;
 }

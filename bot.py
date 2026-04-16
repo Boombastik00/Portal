@@ -283,7 +283,24 @@ async def cmd_delete(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None
 # ── main ─────────────────────────────────────────────────────
 
 def main() -> None:
-    app = Application.builder().token(BOT_TOKEN).build()
+    _app = None
+
+def get_app():
+    return _app
+
+async def notify_promo(code: str) -> None:
+    if _app is None:
+        return
+    msg = f"🎟 *Новый промокод с сайта!*\n\n`{code}`\n\nКто-то выбил ритм-игру 🎉"
+    for admin_id in ADMIN_IDS:
+        try:
+            await _app.bot.send_message(chat_id=admin_id, text=msg, parse_mode="Markdown")
+        except Exception as e:
+            logger.warning(f"Ошибка уведомления: {e}")
+
+def main() -> None:
+    global _app
+    _app = Application.builder().token(BOT_TOKEN).build()
 
     conv = ConversationHandler(
         entry_points=[CommandHandler("add", add_start)],
@@ -299,13 +316,13 @@ def main() -> None:
         fallbacks=[CommandHandler("cancel", add_cancel)],
     )
 
-    app.add_handler(CommandHandler("start",  cmd_start))
-    app.add_handler(CommandHandler("list",   cmd_list))
-    app.add_handler(CommandHandler("delete", cmd_delete))
-    app.add_handler(conv)
+    _app.add_handler(CommandHandler("start",  cmd_start))
+    _app.add_handler(CommandHandler("list",   cmd_list))
+    _app.add_handler(CommandHandler("delete", cmd_delete))
+    _app.add_handler(conv)
 
     logger.info("PORTAL Bot запущен. Ожидаю команды…")
-    app.run_polling(drop_pending_updates=True)
+    _app.run_polling(drop_pending_updates=True)
 
 
 if __name__ == "__main__":

@@ -60,7 +60,9 @@
     function animate() {
         requestAnimationFrame(animate);
 
-        ctx.globalCompositeOperation = 'source-over';
+        // Стираем старые частицы, уменьшая их прозрачность
+        // (destination-out — убирает пиксели canvas, а не рисует чёрным поверх страницы)
+        ctx.globalCompositeOperation = 'destination-out';
         ctx.fillStyle = 'rgba(0,0,0,0.18)';
         ctx.fillRect(0, 0, canvas.width, canvas.height);
 
